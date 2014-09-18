@@ -1,0 +1,18 @@
+package org.elsys.internetprogramming.samplejava;
+
+public class Footballteam {
+	
+	String country;
+	String name;
+	int year;
+	int trophies;
+	
+
+	void howold (String name){
+		if (this.name==name){
+			System.out.print(this.name + " "+name);
+		}
+	}
+	
+	
+}

@@ -1,0 +1,31 @@
+package org.elsys.internetprogramming.samplejava;
+
+public class Footballteam {
+	
+	String country;
+	String name;
+	int year;
+	int trophies;
+	
+
+	void getname(String newname){
+		name=newname;
+	}
+	
+	void getcountry(String newcountry){
+		country=newcountry;
+	}
+	
+	void getyear(int establish){
+		year=establish;
+	}
+	
+	void getthrophies(int wins){
+		trophies=wins;
+	}
+	
+	int howold(){
+		return year-2014;
+	} 
+	
+}

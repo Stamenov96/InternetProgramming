@@ -1,0 +1,23 @@
+package org.elsys.internetprogramming.samplejava;
+
+public class SampleJava {
+
+
+	public static void main(String[] args) {
+
+		int a;
+		int b=2;
+		a=7;
+		
+		
+		for(int i=0;i<a;i++){
+			if (i%2==0 & i!=0){
+				System.out.print(i + "chetno");
+				System.out.print("B"+b)
+			}
+		}
+		
+		
+	}
+
+}

@@ -1,0 +1,15 @@
+package org.elsys.internetprogramming.samplejava;
+
+public class SampleJava {
+
+
+	public static void main(String[] args) {
+
+		int a;
+		int b=2;
+		a=7;
+		
+		
+	}
+
+}
