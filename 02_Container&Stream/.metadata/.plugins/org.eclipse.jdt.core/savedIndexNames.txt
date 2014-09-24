@@ -1,0 +1,2 @@
+INDEX VERSION 1.126+/home/stefo/Desktop/InternetProgramming/02_Container&Stream/.metadata/.plugins/org.eclipse.jdt.core
+4210288354.index

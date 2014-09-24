@@ -1,0 +1,46 @@
+package org.elsys.internetprogramming.containerandstream;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class associativeContainer {
+
+
+	private static final String KEY_BULGARIA = null;
+	private static final String KEY_GERMANY = null;
+
+	public static void main(String[] args) {
+
+
+	}
+	
+	private static void mapExample() {
+		final Map<String, Integer> m = new HashMap<String, Integer>();
+		m.put(KEY_BULGARIA, 7);
+		m.put(KEY_GERMANY, 80);
+		
+		// to get value by key
+		final int populationBulgaria = m.get(KEY_BULGARIA);
+		
+		// formatted output
+		System.out.printf("The population of Bulgaria is %d M\n", populationBulgaria);
+		
+		// iterate over values
+		for (int next : m.values()) {
+			System.out.println(next);
+		}
+		
+		// iterate over all entries
+		for (Entry<String, Integer> next : m.entrySet()) {
+			System.out.printf("The population of %s is %d M\n",
+					next.getKey(), next.getValue());
+		}
+		
+		// iterate over keys
+		for (String next : m.keySet()) {
+			System.out.printf("The population of %s is known\n", next);
+		}
+	}
+	
+
+}

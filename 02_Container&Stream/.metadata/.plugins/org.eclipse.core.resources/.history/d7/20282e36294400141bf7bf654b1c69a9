@@ -1,0 +1,65 @@
+package org.elsys.internetprogramming.containerandstream;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+public class associativeContainer {
+
+
+	private static final String KEY_BULGARIA = "Bulgaria";
+	private static final String KEY_GERMANY = "GERMANY";
+	private static final String KEY_Albania = "Albania";
+	private static final String KEY_Croatia = null;
+	private static final String KEY_Denmark = null;
+	private static final String KEY_Estonia = null;
+	private static final String KEY_France = null;
+	private static final String KEY_Hungary = null;
+	private static final String KEY_Italy = null;
+	private static final String KEY_Moldova = null;
+	private static final String KEY_Netherlands = null;
+	private static final String KEY_Portugal = null;
+	private static final String KEY_Russia = null;
+	private static final String KEY_Spain = null;
+	private static final String KEY_UnitedKingdom = null;
+
+	public static void main(String[] args) {
+
+		mapExample();
+
+	}
+	
+	private static void mapExample() {
+		final Map<String, Integer> m = new HashMap<String, Integer>();
+		
+		m.put(KEY_Albania,3);
+		m.put(KEY_BULGARIA, 7);
+		m.put(KEY_Croatia,5);
+		m.put(KEY_Denmark,6);
+		m.put(KEY_Estonia,1);
+		m.put(KEY_France,65);
+		m.put(KEY_GERMANY, 80);
+		m.put(KEY_Hungary,10);
+		m.put(KEY_Italy,60);
+		m.put(KEY_Moldova,4);
+		m.put(KEY_Netherlands,17);
+		m.put(KEY_Portugal,11);
+		m.put(KEY_Russia,144);
+		m.put(KEY_Spain,47);
+		m.put(KEY_UnitedKingdom,62);
+		
+		
+		final int populationBulgaria = m.get(KEY_BULGARIA);
+		
+		System.out.printf("The population of Bulgaria is %d M\n", populationBulgaria);
+		
+		for (Entry<String, Integer> next : m.entrySet()) {
+			if (10<next.getValue()) {
+	            System.out.println(next.getKey());
+	        }
+		}
+		
+	}
+	
+
+}

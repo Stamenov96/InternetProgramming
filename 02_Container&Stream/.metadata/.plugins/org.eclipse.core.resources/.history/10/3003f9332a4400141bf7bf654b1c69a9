@@ -1,0 +1,17 @@
+
+public class stream {
+
+
+	public static void main(String[] args) {
+	
+	}
+	
+	private static String getLine() throws IOException {
+		final InputStream input = System.in;
+		final InputStreamReader inputStreamReader = new InputStreamReader(input);
+		final BufferedReader reader = new BufferedReader(inputStreamReader);
+		
+		return reader.readLine();
+	}
+
+}

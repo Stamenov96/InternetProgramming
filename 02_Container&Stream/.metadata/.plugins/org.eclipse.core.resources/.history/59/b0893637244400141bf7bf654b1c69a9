@@ -1,0 +1,11 @@
+package org.elsys.internetprogramming.containerandstream;
+
+public class associativeContainer {
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
