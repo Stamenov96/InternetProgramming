@@ -63,6 +63,7 @@ public class HttpGetExample {
 					//System.out.println();
 					
 					requests(getHost, getPath);
+					//System.out.println(new String(response.getBody()));
 					//System.out.println("host = " + loc.getHost());
 			        //System.out.println("port = " + loc.getPort());
 			        //System.out.println("path = " + loc.getPath());
@@ -72,9 +73,16 @@ public class HttpGetExample {
 				
 			}
 			System.out.printf("%s: %s\n", next.getName(), next.getValue());
+
 		}
+		
 		System.out.println(new String(response.getBody()));
-		// or using for
+
+		//for (HttpHeader next : response.getHeaders()) {
+		//	
+	//	}
+		
+				// or using for
 		// for (char next : response.getBody()) {
 		// System.out.print(next);
 		// }
