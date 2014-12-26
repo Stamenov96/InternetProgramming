@@ -26,7 +26,10 @@ $(document).ready(function() {
 	
 	//Task9
 	var data = $("#menu-item-7777").click(function() {
-		alert("Hello World!");
+		//alert("Hello World!");
+		//Task10
+		$("#col1").before($("#col2"));
 	});
+
 	
 });
