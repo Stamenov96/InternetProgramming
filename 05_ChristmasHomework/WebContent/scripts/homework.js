@@ -5,4 +5,7 @@ $(document).ready(function() {
 	var data = ($("a[title|='Технически Университет - София']"));
 	console.log($(data).attr( "title" ));
 	
+	//Task3
+	var data = ($("#col1 p"))
+	console.log($(data).text())
 });
