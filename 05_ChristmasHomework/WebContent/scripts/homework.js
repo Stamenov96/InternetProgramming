@@ -52,13 +52,19 @@ $(document).ready(function() {
 			}
 		});
 	}
-	
+		
 	$.ajax("http://jsonplaceholder.typicode.com/posts", {
 	  method: "GET"
 	}).then(processResponse, handleError);
 
+//Task12
 	
-
+	var data = $("#addbutton").click(function() {
+		 var text = $("#textinput").val();
+		 if(text.length <=0){
+			 alert(("You must enter text"));
+		 } 
+	});
 	
 	
 });
