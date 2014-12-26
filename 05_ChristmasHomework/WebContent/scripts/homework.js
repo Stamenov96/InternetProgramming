@@ -12,4 +12,7 @@ $(document).ready(function() {
 	//Task4
 	var data = ($("#menu-top-level-menu" ).append("<li><a>New Button</a></li>").addClass( "menu-item menu-item-type-post_type menu-item-object-page menu-item-2914" ))
 	
+	//Task5
+	var data = ($("#footer").prepend("<div id ='dynamiccontent'></div>"))
+	
 });
