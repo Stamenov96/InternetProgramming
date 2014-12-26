@@ -80,7 +80,6 @@ $(document).ready(function() {
 					//console.log(id)
 					//console.log("asd")
 					//console.log("http://jsonplaceholder.typicode.com/posts"+id)
-					//console.log("http://jsonplaceholder.typicode.com/posts"+2)
 					$.ajax("http://localhost:3000/posts/"+id, {
 						method: "GET"
 							
@@ -91,17 +90,17 @@ $(document).ready(function() {
 								var newElement = $("<li>");
 								newElement.append($(data2).attr("body"));
 								newElement.append("</li>")
+								newElement.append("<button id='xbtn'>x</button>")
 								list.append(newElement);
 								
-							//console.log("data2")
-							//console.log($(data2).attr("body"))	
 							
 						});
+
 				});
+
+
 		 }
 	});
-	
-	
 	
 	
 });
