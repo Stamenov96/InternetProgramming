@@ -21,4 +21,7 @@ $(document).ready(function() {
 	//Task7
 	var data = ($("#dynamiccontent").append("<button id = 'addbutton'>Add</button>"))
 	
+	//Task8
+	var data = ($("#dynamiccontent").append("<ul id = 'posts'>"))
+	
 });
