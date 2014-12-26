@@ -53,7 +53,7 @@ $(document).ready(function() {
 		});
 	}
 		
-	$.ajax("http://jsonplaceholder.typicode.com/posts", {
+	$.ajax(/*"http://jsonplaceholder.typicode.com/posts"*/"http://localhost:3000/posts", {
 	  method: "GET"
 	}).then(processResponse, handleError);
 
@@ -65,7 +65,7 @@ $(document).ready(function() {
 			 alert(("You must enter text"));
 		 } else {
 			 //Task13
-			 $.ajax('http://jsonplaceholder.typicode.com/posts', {
+			 $.ajax('http://localhost:3000/posts', {
 				  method: 'POST',
 				  data: {
 					    title: 'newTitle',
@@ -73,7 +73,30 @@ $(document).ready(function() {
 					    userId: 1,
 				  }
 				}).then(function(data) {
-				  console.log(data);
+					//console.log("Data send")
+					console.log(data)
+					//Task14
+					var id = ($(data).attr("id"))
+					//console.log(id)
+					//console.log("asd")
+					//console.log("http://jsonplaceholder.typicode.com/posts"+id)
+					//console.log("http://jsonplaceholder.typicode.com/posts"+2)
+					$.ajax("http://localhost:3000/posts/"+id, {
+						method: "GET"
+							
+						}).then(function(data2){
+							
+							var list = $("#posts");
+							var i = 0;
+								var newElement = $("<li>");
+								newElement.append($(data2).attr("body"));
+								newElement.append("</li>")
+								list.append(newElement);
+								
+							//console.log("data2")
+							//console.log($(data2).attr("body"))	
+							
+						});
 				});
 		 }
 	});
