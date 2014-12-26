@@ -10,7 +10,7 @@ $(document).ready(function() {
 	console.log($(data).text())
 
 	//Task4
-	var data = ($("#menu-top-level-menu" ).append("<li><a>New Button</a></li>").addClass( "menu-item menu-item-type-post_type menu-item-object-page menu-item-2914" ))
+	var data = ($("#menu-top-level-menu" ).append("<li id='menu-item-7777'><a>New Button</a></li>").addClass( "menu-item menu-item-type-post_type menu-item-object-page menu-item-2914" ))
 	
 	//Task5
 	var data = ($("#footer").prepend("<div id ='dynamiccontent'></div>"))
@@ -23,5 +23,10 @@ $(document).ready(function() {
 	
 	//Task8
 	var data = ($("#dynamiccontent").append("<ul id = 'posts'>"))
+	
+	//Task9
+	var data = $("#menu-item-7777").click(function() {
+		alert("Hello World!");
+	});
 	
 });
