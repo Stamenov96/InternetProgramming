@@ -63,8 +63,22 @@ $(document).ready(function() {
 		 var text = $("#textinput").val();
 		 if(text.length <=0){
 			 alert(("You must enter text"));
-		 } 
+		 } else {
+			 //Task13
+			 $.ajax('http://jsonplaceholder.typicode.com/posts', {
+				  method: 'POST',
+				  data: {
+					    title: 'newTitle',
+					    body: text,
+					    userId: 1,
+				  }
+				}).then(function(data) {
+				  console.log(data);
+				});
+		 }
 	});
+	
+	
 	
 	
 });
