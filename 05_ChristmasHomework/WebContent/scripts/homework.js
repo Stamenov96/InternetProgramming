@@ -18,4 +18,7 @@ $(document).ready(function() {
 	//Task6
 	var data = ($("#dynamiccontent").append("<input id = 'textinput'>"))
 	
+	//Task7
+	var data = ($("#dynamiccontent").append("<button id = 'addbutton'>Add</button>"))
+	
 });
