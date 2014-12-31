@@ -101,10 +101,20 @@ $(document).ready(function() {
 								newElement.append("</li>")
 								
 								newButton.click(function(){
+									var r = confirm("Are you sure you want to delete it ?");
+									if (r == true) {	 
+									    $.ajax('http://jsonplaceholder.typicode.com/posts/'+(data2.id), {
+									    	  method: 'DELETE',
+									    	  success: function() {
+													$(".xbtn" + data2.id).remove();
+													
+												}
+									    	})
 									
-									alert("Deleting")
+									}
 								})
-								
+								newElement.attr("class", "xbtn" + data2.id);
+								newButton.attr("class", "xbtn" + data2.id);
 								newElement.append(newButton)
 								list.append(newElement);
 							
