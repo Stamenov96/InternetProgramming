@@ -129,6 +129,9 @@ $(document).ready(function() {
 
 
 	});
-	 
+	 var inputelement  = $("<input/>")
+	inputelement.insertBefore( $( "#posts" ) );
+
+	
 
 });
