@@ -95,21 +95,19 @@ $(document).ready(function() {
 							
 							var list = $("#posts");
 							var i = 0;
-								var newElement = $("<li>");
+								var newElement = $("<li id="+xbtn+">");
+								var newButton = $("<button>X</button>");
 								newElement.append($(data2).attr("body"));
 								newElement.append("</li>")
-								newElement.append("<button id='xbtn"+xbtn+"'>x</button>")
-								list.append(newElement);
 								
-								// Task 15
-								for(var i=1;i<=xbtn;i++){
-									$("button#xbtn"+i).click(function(){
-										alert("deleting");
-										throw new Error("Prevent aditional alerts");
-										//break;
-										//return;
-									});
-								}
+								newButton.click(function(){
+									
+									alert("Deleting")
+								})
+								
+								newElement.append(newButton)
+								list.append(newElement);
+							
 								
 							
 						});
