@@ -129,9 +129,31 @@ $(document).ready(function() {
 
 
 	});
+	
+	var processNewResponse = function(response) {
+				$.each(response, function() {
+					appendToList($("ul#posts"), this);
+				});
+			};
+	
 	 var inputelement  = $("<input/>")
-	inputelement.insertBefore( $( "#posts" ) );
-
+	 inputelement.attr("id","inputelement")
+	 inputelement.insertBefore( $( "#posts" ) );
+	 inputelement.change(function(){
+	 console.log($("#inputelement").val())
+		 
+			var inputval = $("#inputelement").val();
+		 
+		 		$.ajax("http://localhost:3000/posts?userId=" + inputval, {
+		 			method: "GET"
+		 		}).then(function(data3){
+		 			$.each(data3, function() {
+						appendToList($("ul#posts"), this);
+		 			})
+		 			
+		 		});
+	 })
+	
 	
 
 });
