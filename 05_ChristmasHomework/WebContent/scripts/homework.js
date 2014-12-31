@@ -143,7 +143,7 @@ $(document).ready(function() {
 	 console.log($("#inputelement").val())
 		 
 			var inputval = $("#inputelement").val();
-		 
+	 		$("#posts li").remove();
 		 		$.ajax("http://localhost:3000/posts?userId=" + inputval, {
 		 			method: "GET"
 		 		}).then(function(data3){
