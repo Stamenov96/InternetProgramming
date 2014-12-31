@@ -137,6 +137,7 @@ $(document).ready(function() {
 			};
 	
 	 var inputelement  = $("<input/>")
+	// var delsupport = $("<button>X</button>");
 	 inputelement.attr("id","inputelement")
 	 inputelement.insertBefore( $( "#posts" ) );
 	 inputelement.change(function(){
@@ -147,8 +148,33 @@ $(document).ready(function() {
 		 		$.ajax("http://localhost:3000/posts?userId=" + inputval, {
 		 			method: "GET"
 		 		}).then(function(data3){
+		 			var list = $("#posts");
 		 			$.each(data3, function() {
-						appendToList($("ul#posts"), this);
+		 			
+		 				
+		 				
+		 				var newElement = $("<li>");
+						var delsupport = $("<button>X</button>");
+						newElement.text(this.title);
+						newElement.append("</li>")
+		 				
+		 				delsupport.click(function(){
+							var r = confirm("Are you sure you want to delete it ?");
+							if (r == true) {	 
+							    $.ajax('http://jsonplaceholder.typicode.com/posts/'+(data3.id), {
+							    	  method: 'DELETE',
+							    	  success: function() {
+											$("#delsupport" + data3.id).remove();
+											
+										}
+							    	})
+							
+							}
+						})
+						newElement.attr("id", "delsupport" + data3.id);
+						delsupport.attr("id", "delsupport" + data3.id);
+						newElement.append(delsupport)
+						list.append(newElement);
 		 			})
 		 			
 		 		});
