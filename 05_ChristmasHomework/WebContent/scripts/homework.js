@@ -57,21 +57,29 @@ $(document).ready(function() {
 	  method: "GET"
 	}).then(processResponse, handleError);
 
+	
+	
+	
 //Task12
 	
+	
+	
 	var data = $("#addbutton").click(function() {
+		 var xbtn =0
 		 var text = $("#textinput").val();
 		 if(text.length <=0){
 			 alert(("You must enter text"));
 		 } else {
 			 //Task13
+			 xbtn++;
 			 $.ajax('http://localhost:3000/posts', {
 				  method: 'POST',
 				  data: {
 					    title: 'newTitle',
 					    body: text,
 					    userId: 1,
-				  }
+					    id:(100+xbtn)
+				  } 
 				}).then(function(data) {
 					//console.log("Data send")
 					console.log(data)
@@ -90,17 +98,29 @@ $(document).ready(function() {
 								var newElement = $("<li>");
 								newElement.append($(data2).attr("body"));
 								newElement.append("</li>")
-								newElement.append("<button id='xbtn'>x</button>")
+								newElement.append("<button id='xbtn"+xbtn+"'>x</button>")
 								list.append(newElement);
+								
+								// Task 15
+								for(var i=1;i<=xbtn;i++){
+									$("button#xbtn"+i).click(function(){
+										alert("deleting");
+										throw new Error("Prevent aditional alerts");
+										//break;
+										//return;
+									});
+								}
 								
 							
 						});
 
 				});
 
-
+			 
 		 }
+
+
 	});
-	
-	
+	 
+
 });
