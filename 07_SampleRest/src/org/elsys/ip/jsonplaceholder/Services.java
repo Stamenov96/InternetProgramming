@@ -22,7 +22,7 @@ public class Services {
 	}
 	
 	// for tests purposes
-	static void setPostsService(PostsService postsService) {
+	public static void setPostsService(PostsService postsService) {
 		Services.postsService = postsService;
 	}
 }
