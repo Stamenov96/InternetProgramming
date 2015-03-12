@@ -3,6 +3,7 @@ package org.elsysbg.ip.jsonplaceholder.rest;
 
 import java.util.List;
 
+import org.elsys.ip.jsonplaceholder.Services;
 import org.elsysbg.ip.jsonplaceholder.model.Post;
 import org.elsysbg.ip.jsonplaceholder.model.User;
 import org.elsysbg.ip.jsonplaceholder.service.PostsService;
@@ -10,9 +11,15 @@ import org.elsysbg.ip.jsonplaceholder.service.PostsService;
 public class PostsRest {
 	private final PostsService postsService;
 	private final User defaultAuthor;
-	public PostsRest() {
-		postsService = new PostsService();
 		
+	
+	// In real world projects this is done by injection
+	// see https://github.com/google/guice
+	//	@Inject
+	//	public PostsRest(PostsService postsService) {
+	public PostsRest() {
+		postsService = Services.getPostsService();
+
 		// TODO should be get from session
 		defaultAuthor = new User();
 		defaultAuthor.setEmail("hello@world");
