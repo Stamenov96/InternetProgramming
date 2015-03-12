@@ -1,6 +1,5 @@
 package org.elsysbg.ip.jsonplaceholder.model;
 
-import org.apache.tomcat.jni.User;
 
 public class Post {
 	
