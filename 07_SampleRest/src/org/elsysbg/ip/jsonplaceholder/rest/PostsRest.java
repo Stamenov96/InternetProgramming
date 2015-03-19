@@ -61,7 +61,7 @@ public class PostsRest {
 	
 	public Post createPost(Post post) {
 		// TODO set author by user session
-				post.setAuthor(defaultAuthor);
+		//		post.setAuthor(defaultAuthor);
 				return postsService.createPost(post);
 
 	}
