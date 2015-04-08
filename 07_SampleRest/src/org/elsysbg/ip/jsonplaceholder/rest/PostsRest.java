@@ -2,6 +2,7 @@ package org.elsysbg.ip.jsonplaceholder.rest;
 
 
 import java.util.List;
+import java.util.Set;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -56,6 +57,15 @@ public class PostsRest {
 		return postsService.getPost(postId);
 	}
 	
+	@GET
+	@Path("/{postId}/likedbyusers")
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	// @PathParam binds url parameter (postId) to method parameter (postId)
+	public List<User> getUsersByLikedPost(@PathParam("postId") long postId) {
+		final Post likedPost = postsService.getPost(postId);
+		return usersService.getUsersByLikedPost(likedPost);
+	}
+	
 	@POST
 	@Path("/")
 	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
@@ -68,6 +78,17 @@ public class PostsRest {
 		return postsService.createPost(post);
 
 	}
+	
+	@POST
+	@Path("/{postId}/likedbyusers")
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	// @PathParam binds url parameter (postId) to method parameter (postId)
+	public Set<User> likePost(@PathParam("postId") long postId) {
+		final User likedByUser =
+				usersService.getUserByEmail(defaultAuthorEmail);
+		return postsService.likePost(postId, likedByUser);
+	}
+	
 	@PUT
 	@Path("/{postId}")
 	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
