@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import org.elsysbg.ip.jsonplaceholder.service.PostsService;
+import org.elsysbg.ip.jsonplaceholder.service.UsersService;
 
 /**
  * This is used instead of injection.
@@ -14,6 +15,7 @@ import org.elsysbg.ip.jsonplaceholder.service.PostsService;
 public class Services {
 
 	private static PostsService postsService;
+	private static UsersService usersService;
 	private static EntityManagerFactory entityManagerFactory;
 
 	// TODO synchronized should be done in better way in real projects
@@ -49,5 +51,19 @@ public class Services {
 			Services.entityManagerFactory = entityManagerFactory;
 		}
 		
-	
+		// TODO synchronized should be done in better way in real projects
+			public synchronized static UsersService getUsersService() {
+				// lazy loading
+				if (usersService == null) {
+					usersService = new UsersService();
+					// TODO ensure there is at least one admin user
+				}
+				return usersService;
+			}
+			
+			// for tests purposes
+			static void setUsersService(UsersService usersService) {
+				Services.usersService = usersService;
+			}
+		
 }

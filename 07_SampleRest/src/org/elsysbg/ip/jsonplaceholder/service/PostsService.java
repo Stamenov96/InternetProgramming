@@ -1,6 +1,5 @@
 package org.elsysbg.ip.jsonplaceholder.service;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
