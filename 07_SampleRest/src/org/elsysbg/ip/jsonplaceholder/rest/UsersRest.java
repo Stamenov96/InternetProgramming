@@ -1,6 +1,8 @@
 package org.elsysbg.ip.jsonplaceholder.rest;
 
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -10,12 +12,15 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.elsys.ip.jsonplaceholder.Services;
+import org.elsysbg.ip.jsonplaceholder.model.Post;
 import org.elsysbg.ip.jsonplaceholder.model.User;
+import org.elsysbg.ip.jsonplaceholder.service.PostsService;
 import org.elsysbg.ip.jsonplaceholder.service.UsersService;
 
  @Path("users")
  public class UsersRest {
  	private final UsersService usersService;
+ 	private final PostsService postsService;
  
  
  // In real world projects this is done by injection
@@ -24,6 +29,7 @@ import org.elsysbg.ip.jsonplaceholder.service.UsersService;
  //	public UsersRest(UsersService postsService) {
  	public UsersRest() {
  		usersService = Services.getUsersService();
+ 		postsService = Services.getPostsService();
  	}
  
  	@GET
@@ -32,6 +38,14 @@ import org.elsysbg.ip.jsonplaceholder.service.UsersService;
  	// @PathParam binds url parameter (postId) to method parameter (postId)
  	public User getUser(@PathParam("userId") long userId) {
  		return usersService.getUser(userId);
+ 	}
+ 	@GET
+ 	@Path("/{userId}/posts")
+ 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+ 	// @PathParam binds url parameter (postId) to method parameter (postId)
+ 	public List<Post> getUserPosts(@PathParam("userId") long userId) {
+ 	final User author = usersService.getUser(userId);
+ 	return postsService.getPostsByAuthor(author);
  	}
  	@POST
  	@Path("/")
